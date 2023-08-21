@@ -1,57 +1,45 @@
 package java_se_17_fundamental;
 
-import java.util.Scanner;
-
 public class CalcEngine {
     public static void main(String[] args) {
 
-        char operator;
-        double number1, number2, result;
+        int[] leftValue = {30, 20, 10, 40};
+        int[] rightValue = {10, 15, 5, 20};
+        char[] oprCode = {'+', '-', '*', '/'};
+        int[] result = new int[oprCode.length];
 
-        // create an object of Scanner class
-        Scanner input = new Scanner(System.in);
+        for (int i = 0; i < oprCode.length; i++) {
+            switch (oprCode[i]) {
 
-        // ask users to enter operator
-        System.out.println("Choose an operator: +, -, *, or /");
-        operator = input.next().charAt(0);
+                // performs addition between numbers
+                case '+':
+                    result[i] = leftValue[i] + rightValue[i];
+                    System.out.println(leftValue[i] + " + " + rightValue[i] + " = " + result[i]);
+                    break;
 
-        // ask users to enter numbers
-        System.out.println("Enter first number");
-        number1 = input.nextDouble();
+                // performs subtraction between numbers
+                case '-':
+                    result[i] = leftValue[i] - rightValue[i];
+                    System.out.println(leftValue[i] + " - " + rightValue[i] + " = " + result[i]);
+                    break;
 
-        System.out.println("Enter second number");
-        number2 = input.nextDouble();
+                // performs multiplication between numbers
+                case '*':
+                    result[i] = leftValue[i] * rightValue[i];
+                    System.out.println(leftValue[i] + " * " + rightValue[i] + " = " + result[i]);
+                    break;
 
-        switch (operator) {
+                // performs division between numbers
+                case '/':
+                    result[i] = leftValue[i] / rightValue[i];
+                    System.out.println(leftValue[i] + " / " + rightValue[i] + " = " + result[i]);
+                    break;
 
-            // performs addition between numbers
-            case '+':
-                result = number1 + number2;
-                System.out.println(number1 + " + " + number2 + " = " + result);
-                break;
+                default:
+                    System.out.print("Invalid operator!");
+                    break;
 
-            // performs subtraction between numbers
-            case '-':
-                result = number1 - number2;
-                System.out.println(number1 + " - " + number2 + " = " + result);
-                break;
-
-            // performs multiplication between numbers
-            case '*':
-                result = number1 * number2;
-                System.out.println(number1 + " * " + number2 + " = " + result);
-                break;
-
-            // performs division between numbers
-            case '/':
-                result = number1 / number2;
-                System.out.println(number1 + " / " + number2 + " = " + result);
-                break;
-
-            default:
-                System.out.println("Invalid operator!");
-                break;
+            }
         }
-
     }
 }

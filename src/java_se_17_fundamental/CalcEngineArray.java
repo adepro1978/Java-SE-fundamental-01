@@ -1,6 +1,6 @@
 package java_se_17_fundamental;
 
-public class CalcEngine {
+public class CalcEngineArray {
     public static void main(String[] args) {
 
         int[] leftValue = {30, 20, 10, 40};

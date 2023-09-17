@@ -36,7 +36,7 @@ public class MathEquationRunner {
             equation.execute();
             System.out.println("Result= " + equation.result);
         }
-
+        System.out.println( "Average Result = " + MathEquation.getAverageResult());
 
     }
 

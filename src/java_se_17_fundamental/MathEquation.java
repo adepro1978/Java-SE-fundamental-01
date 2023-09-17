@@ -8,6 +8,9 @@ package java_se_17_fundamental;
         char opCode;
         double result;
 
+        private static int numberOfCalculation;
+        private static double sumOfResult;
+
 
         //public MathEquation(){}
 
@@ -23,10 +26,6 @@ package java_se_17_fundamental;
             this.rightVal = rightVal;
 
         }
-
-
-
-
 
 
         void execute( ) {
@@ -50,6 +49,13 @@ package java_se_17_fundamental;
                 default:
                     throw new IllegalStateException("Unexpected value: " + opCode);
             }
+
+            numberOfCalculation++;
+            sumOfResult += result;
+        }
+
+        public static double getAverageResult() {
+            return sumOfResult / numberOfCalculation;
         }
 
         /*

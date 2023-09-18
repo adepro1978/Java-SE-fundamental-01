@@ -8,7 +8,7 @@ public class MathEquationRunner {
 
         if (args.length == 0) {
             performCalculation();
-           /* for (int i = 0; i < opCode.length; i++) {
+            /*for (int i = 0; i < opCode.length; i++) {
                 results[i] = execute(opCode[i], leftVal[i], rightVal[i]);
 
             }
@@ -34,20 +34,34 @@ public class MathEquationRunner {
 
         for (MathEquation equation : equations) {
             equation.execute();
-            System.out.println("Result= " + equation.result);
+            System.out.println (equation);
         }
-        System.out.println( "Average Result = " + MathEquation.getAverageResult());
-
+        System.out.println("Average Result = " + MathEquation.getAverageResult());
+        //useOverloads();
     }
 
-        /*private static MathEquation create(double leftVal, double rightVal, char opCode) {
+        static void useOverloads() {
+            System.out.println();
+            System.out.println("Using execute overloads");
+            System.out.println();
+
+            MathEquation equationOverload = new MathEquation('d');
+            double leftDouble = 9.0;
+            double rightDouble = 4.0;
+            equationOverload.execute(leftDouble, rightDouble);
+            System.out.println("Overload result with double : " + equationOverload.getResult());
+
+        }
+
+
+        public static MathEquation create(char opCode, double leftVal, double rightVal) {
             MathEquation equation = new MathEquation();
             equation.setLeftVal(leftVal);
             equation.setRightVal(rightVal);
             equation.setOpCode(opCode);
             return equation;
        }
- **/
+
 
 
     static void interactUser() {
@@ -119,4 +133,3 @@ public class MathEquationRunner {
         return value;
     }
 }
-

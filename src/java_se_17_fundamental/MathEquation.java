@@ -3,7 +3,7 @@ package java_se_17_fundamental;
 public class MathEquation {
     private static int numberOfCalculation;
     private static double sumOfResult;
-    private char opCode;
+    private MathOperation opCode;
     private double result;
     private double leftVal;
     private double rightVal;
@@ -11,11 +11,11 @@ public class MathEquation {
     public MathEquation() {
     }
 
-    public MathEquation(char opCode) {
+    public MathEquation(MathOperation opCode) {
         this.opCode = opCode;
     }
 
-    public MathEquation(char opCode, double leftVal, double rightVal) {
+    public MathEquation(MathOperation opCode, double leftVal, double rightVal) {
         this(opCode);
         this.leftVal = leftVal;
         this.rightVal = rightVal;
@@ -34,7 +34,7 @@ public class MathEquation {
         execute();
     }
     public String toString(){
-        char symbol = symbolFromOpCode();
+        char symbol = opCode.getSymbol();
         StringBuilder build = new StringBuilder(20);
         build.append(leftVal);
         build.append(" ");
@@ -46,7 +46,7 @@ public class MathEquation {
         return build.toString();
     }
 
-    public char symbolFromOpCode() {
+    /*public char symbolFromOpCode() {
         char[] opCodes = {'a', 's', 'm', 'd'};
         char[] symbols = {'+', '-', '*', '/'};
         char symbol = ' ';
@@ -58,7 +58,7 @@ public class MathEquation {
 
         }
         return symbol;
-    }
+    }**/
 
 
     public double getResult() {
@@ -74,7 +74,7 @@ public class MathEquation {
         this.rightVal = rightVal;
     }
 
-    public void setOpCode(char opCode) {
+    public void setOpCode(MathOperation opCode) {
         this.opCode = opCode;
 
     }
@@ -83,16 +83,16 @@ public class MathEquation {
 
         switch (opCode) {
 
-            case 'a':
+            case ADD:
                 result = leftVal + rightVal;
                 break;
-            case 's':
+            case SUBTRACT:
                 result = leftVal - rightVal;
                 break;
-            case 'm':
+            case MULTIPLY:
                 result = leftVal * rightVal;
                 break;
-            case 'd':
+            case DIVIDE:
                 result = leftVal / rightVal;
 
 
@@ -107,3 +107,4 @@ public class MathEquation {
     }
 
 }
+
